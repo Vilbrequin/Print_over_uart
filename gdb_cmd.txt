@@ -1,0 +1,6 @@
+set confirm off
+target remote localhost:7224
+monitor reset
+load
+monitor reset halt 
+c
