@@ -79,6 +79,20 @@
 #define CnSC_OFFSET(channel)            (0xCUL + (channel * 0x8UL))
 #define CnV_OFFSET(channle)             (0x10UL + (channel * 0x8UL))
 
+// FTM3 MACROS
+#define SC_CLK_MASK                     (3 << 3)
+#define SC_PS                           (7 << 0)
+#define SC_CPWMS                        (1 << 5)
+#define SC_TOIE                         (1 << 8)
+#define SC_TOF                          (1 << 9)
+#define MODE_WPDIS_MASK                 (1 << 2)
+#define COMBINE_COMBINE3_MASK           (1 << 24)
+#define COMBINE_DECAPEN3_MASK           (1 << 26)
+#define COMBINE_MCOMBINE3_MASK          (1 << 31)
+#define CH6_SC_MSB_MSA_MASK             (3 << 4)
+#define CH6_SC_ELSB_ELSA_MASK           (3 << 2)
+
+
 // SCG PERIPHERAL
 #define SCG_BASE_ADDRESS                0x40064000UL
 #define SCG_RCCR_OFFSET                 0x14UL

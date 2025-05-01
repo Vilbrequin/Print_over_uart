@@ -20,8 +20,8 @@ void SOSC_init_8MHz(void)
     *scg_sosc_cfg |= ((2 << 4) | (1 << 2));
 
     // Configure the System Oscillator Dividers
-    // SOSCDIV2[10:8] = 0b001 => finctional Clock used by LPUART1
-    // SOSCDIV1[2:0] = 0b001
+    // SOSCDIV2[10:8] = 0b001 => functional Clock used by LPUART1
+    // SOSCDIV1[2:0] = 0b001 => functional Clock used by FlexTimer Module
     *scg_sosc_div &= ~(SCG_DIV2_MASK | SCG_DIV1_MASK);
     *scg_sosc_div |= ((1 << 8) | (1 << 0));
 
@@ -62,7 +62,7 @@ void NormalRUNmode_80MHz(void){
     // DIVCORE[19:16] = 0b0001 => [SYS_CLK]: Divide the Source CLock by 2
     // DIVBUS[7:4] = 0b0001 => [BUS_CLK]: Divide the SYS_CLK By 2
     // DIVSLOW[3:0] = 0b0010 => [FLASH_CLK]: ivide the SYS_CLK By 4
-    *scg_rccr = 0x01010012;;
+    *scg_rccr = 0x06010012;
     
     // Monitor if the SPLL is correctly selected
     if(((*scg_csr & SCG_CSR_SCS_MASK) >> SCG_CSR_SCS_SHIFT) != 6){}
